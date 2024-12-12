@@ -17,6 +17,9 @@ import com.educhuks.citymapp.ui.composables.LoadingView
 import com.educhuks.citymapp.ui.composables.MapView
 import com.educhuks.citymapp.ui.map.MapActivity
 import com.educhuks.citymapp.ui.theme.CityMappTheme
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.compose.rememberCameraPositionState
 import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
@@ -41,6 +44,10 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
         val citySelected by viewModel.selectedItem.observeAsState()
         val event by viewModel.mainEvent.observeAsState()
 
+        val cameraPositionState = rememberCameraPositionState {
+            position = CameraPosition.fromLatLngZoom(LatLng(0.0, 0.0), 10f)
+        }
+
         Row {
             CityList(
                 cities = cities ?: emptyList(),
@@ -49,6 +56,9 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
                 isLandscape = isLandscape,
                 onItemClick = { city ->
                     viewModel.selectItem(city)
+                    cameraPositionState.position = CameraPosition.fromLatLngZoom(
+                        LatLng(city.coord.lat, city.coord.lon), 10f
+                    )
 
                     if (!isLandscape) {
                         val mapIntent = Intent(context, MapActivity::class.java).apply {
@@ -64,6 +74,7 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
                 city = citySelected?.name.orEmpty(),
                 latitude = citySelected?.coord?.lat ?: 0.0,
                 longitude = citySelected?.coord?.lon ?: 0.0,
+                cameraPositionState = cameraPositionState,
                 modifier = Modifier.weight(1f)
             )
         }

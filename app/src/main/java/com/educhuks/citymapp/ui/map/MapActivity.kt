@@ -6,6 +6,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.educhuks.citymapp.ui.composables.MapView
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.compose.rememberCameraPositionState
 
 class MapActivity: ComponentActivity() {
 
@@ -19,7 +22,10 @@ class MapActivity: ComponentActivity() {
             MapView(
                 city = name,
                 latitude = latitude,
-                longitude = longitude
+                longitude = longitude,
+                cameraPositionState = rememberCameraPositionState {
+                    position = CameraPosition.fromLatLngZoom(LatLng(latitude, longitude), 10f)
+                }
             )
         }
     }
