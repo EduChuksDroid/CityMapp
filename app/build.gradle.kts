@@ -54,6 +54,11 @@ dependencies {
     implementation(libs.maps.compose.v441)
     implementation(libs.maps.compose.utils)
     implementation(libs.maps.compose.widgets)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

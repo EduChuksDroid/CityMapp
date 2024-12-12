@@ -10,18 +10,15 @@ import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
 
-//-12.149341,-77.0208139
-
 @Composable
 fun MapView(
-    item: String,
+    city: String,
+    latitude: Double,
+    longitude: Double,
     modifier: Modifier = Modifier.fillMaxSize()
 ) {
-    val lat = -12.149341
-    val lon = -77.0208139
-
     val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(LatLng(lat, lon), 10f)
+        position = CameraPosition.fromLatLngZoom(LatLng(latitude, longitude), 10f)
     }
 
     GoogleMap(
@@ -29,8 +26,8 @@ fun MapView(
         cameraPositionState = cameraPositionState
     ) {
         Marker(
-            state = MarkerState(position = LatLng(lat, lon)),
-            title = "Detail of City $item"
+            state = MarkerState(position = LatLng(latitude, longitude)),
+            title = city
         )
     }
 }

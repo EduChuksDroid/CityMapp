@@ -11,23 +11,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.educhuks.citymapp.data.CityResponse
 import com.educhuks.citymapp.extensions.divider
 
 @Composable
 fun CityList(
     modifier: Modifier,
-    cities: List<String>,
-    citySelected: String?,
+    cities: List<CityResponse>,
+    citySelected: CityResponse?,
     isLandscape: Boolean,
-    onItemClick: (String) -> Unit
+    onItemClick: (CityResponse) -> Unit
 ) {
     LazyColumn(modifier = modifier) {
         items(cities) { item ->
             Text(
-                text = item,
+                text = item.name,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(if (isLandscape && item == citySelected) Color.LightGray else Color.Transparent)
+                    .background(if (isLandscape && item.id == citySelected?.id) Color.LightGray else Color.Transparent)
                     .divider()
                     .clickable { onItemClick(item) }
                     .padding(16.dp)
