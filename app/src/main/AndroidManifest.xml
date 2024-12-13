@@ -23,12 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.map.MapActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="true"
-            android:theme="@style/Theme.CityMapp"/>
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC95rsxNIp-4kv4SkJws9rwypVhNK1Rc24" />
