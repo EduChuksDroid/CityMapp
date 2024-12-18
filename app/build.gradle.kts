@@ -69,6 +69,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
+    implementation(libs.core.ktx)
 
     val roomVersion = "2.6.0" // Use the latest stable version
 
