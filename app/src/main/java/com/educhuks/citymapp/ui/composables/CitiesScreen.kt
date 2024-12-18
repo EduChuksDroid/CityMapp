@@ -12,7 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import com.educhuks.citymapp.data.CityResponse
 import com.educhuks.citymapp.ui.composables.NavRoutes.DETAIL
 import com.educhuks.citymapp.ui.composables.NavRoutes.LIST
-import com.educhuks.citymapp.ui.main.MainViewModel
+import com.educhuks.citymapp.ui.main.CitiesViewModel
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.rememberCameraPositionState
@@ -20,7 +20,7 @@ import com.google.maps.android.compose.rememberCameraPositionState
 @Composable
 fun CitiesScreen(
     modifier: Modifier,
-    viewModel: MainViewModel,
+    viewModel: CitiesViewModel,
     onItemClick: (CityResponse) -> Unit
 ) {
     val navController = rememberNavController()

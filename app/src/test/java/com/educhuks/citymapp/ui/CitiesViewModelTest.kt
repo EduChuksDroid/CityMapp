@@ -3,7 +3,7 @@ package com.educhuks.citymapp.ui
 import com.educhuks.citymapp.data.CitiesRepository
 import com.educhuks.citymapp.data.CityResponse
 import com.educhuks.citymapp.data.Coordinates
-import com.educhuks.citymapp.ui.main.MainViewModel
+import com.educhuks.citymapp.ui.main.CitiesViewModel
 import com.educhuks.citymapp.util.InstantExecutorExtension
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -22,9 +22,9 @@ import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(InstantExecutorExtension::class)
 @ExperimentalCoroutinesApi
-class MainViewModelTest {
+class CitiesViewModelTest {
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: CitiesViewModel
     private lateinit var repository: CitiesRepository
 
     private val testDispatcher = UnconfinedTestDispatcher()
@@ -34,7 +34,7 @@ class MainViewModelTest {
     fun before(){
         Dispatchers.setMain(testDispatcher)
         repository = mockk(relaxed = true)
-        viewModel = MainViewModel(repository)
+        viewModel = CitiesViewModel(repository)
     }
 
     @AfterEach

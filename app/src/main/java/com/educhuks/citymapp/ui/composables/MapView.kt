@@ -14,7 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
-import com.educhuks.citymapp.ui.main.MainViewModel
+import com.educhuks.citymapp.ui.main.CitiesViewModel
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.CameraPositionState
 import com.google.maps.android.compose.GoogleMap
@@ -23,7 +23,7 @@ import com.google.maps.android.compose.MarkerState
 
 @Composable
 fun MapView(
-    viewModel: MainViewModel,
+    viewModel: CitiesViewModel,
     cameraPositionState: CameraPositionState,
     onBackClick: () -> Unit = {}
 ) {

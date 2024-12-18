@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val repository: CitiesRepository) : ViewModel() {
+class CitiesViewModel(private val repository: CitiesRepository) : ViewModel() {
 
     private var fullList: List<CityResponse> = listOf()
 

@@ -10,13 +10,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.educhuks.citymapp.R
-import com.educhuks.citymapp.ui.main.MainViewModel
+import com.educhuks.citymapp.ui.main.CitiesViewModel
 import com.google.maps.android.compose.CameraPositionState
 
 @Composable
 fun MapScreen(
     modifier: Modifier = Modifier.fillMaxSize(),
-    viewModel: MainViewModel,
+    viewModel: CitiesViewModel,
     cameraPositionState: CameraPositionState
 ) {
     val city by viewModel.selectedItem.collectAsState()

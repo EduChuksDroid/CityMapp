@@ -30,14 +30,14 @@ import androidx.compose.ui.unit.dp
 import com.educhuks.citymapp.R
 import com.educhuks.citymapp.data.CityResponse
 import com.educhuks.citymapp.extensions.divider
-import com.educhuks.citymapp.ui.main.MainViewModel
+import com.educhuks.citymapp.ui.main.CitiesViewModel
 import com.educhuks.citymapp.ui.theme.subtitleStyle
 import com.educhuks.citymapp.ui.theme.titleStyle
 
 @Composable
 fun CityList(
     modifier: Modifier,
-    viewModel: MainViewModel,
+    viewModel: CitiesViewModel,
     onItemClick: (CityResponse) -> Unit
 ) {
     val searchText by viewModel.queryPrefix.collectAsState()
