@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CityMapp</string>
+    <string name="hint_search_city">Search City</string>
+    <string name="label_no_city_selected">No City selected</string>
 </resources>

@@ -1,8 +1,11 @@
 package com.educhuks.citymapp.di
 
+import androidx.room.Room
 import com.educhuks.citymapp.data.CitiesAPI
 import com.educhuks.citymapp.data.CitiesRepository
+import com.educhuks.citymapp.data.database.CitiesDatabase
 import com.educhuks.citymapp.ui.main.MainViewModel
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -19,6 +22,14 @@ val appModule = module {
             .build()
     }
     single { get<Retrofit>().create(CitiesAPI::class.java) }
-    single { CitiesRepository(get()) }
+    single {
+        Room.databaseBuilder(
+            androidContext(),
+            CitiesDatabase::class.java,
+            "cities_database"
+        ).build()
+    }
+    single { get<CitiesDatabase>().citiesDao() }
+    single { CitiesRepository(get(), get()) }
     viewModel { MainViewModel(get()) }
 }

@@ -8,6 +8,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.educhuks.citymapp.R
 import com.educhuks.citymapp.ui.main.MainViewModel
 import com.google.maps.android.compose.CameraPositionState
 
@@ -29,7 +31,7 @@ fun MapScreen(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = "No city selected")
+            Text(text = stringResource(R.string.label_no_city_selected))
         }
     }
 }
